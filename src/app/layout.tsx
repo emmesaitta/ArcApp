@@ -9,13 +9,15 @@ import {
 import { useState } from 'react'
 
 const navItems = [
-  { href: '/',          label: 'Dashboard',       icon: LayoutDashboard },
-  { href: '/ospiti',    label: 'Ospiti',           icon: Users },
-  { href: '/note',      label: 'Note del giorno',  icon: FileText },
-  { href: '/pasti',     label: 'Pasti',            icon: Utensils },
-  { href: '/menu',      label: 'Menu settimanale', icon: CalendarDays },
-  { href: '/parenti',   label: 'Parenti',          icon: UserCheck },
+  { href: '/gestionale',        label: 'Dashboard',       icon: LayoutDashboard },
+  { href: '/ospiti',            label: 'Ospiti',           icon: Users },
+  { href: '/note',              label: 'Note del giorno',  icon: FileText },
+  { href: '/pasti',             label: 'Pasti',            icon: Utensils },
+  { href: '/menu',              label: 'Menu settimanale', icon: CalendarDays },
+  { href: '/parenti',           label: 'Parenti',          icon: UserCheck },
 ]
+
+const PUBLIC_ROUTES = ['/', '/menu-pubblico', '/portale']
 
 function Sidebar({ onClose }: { onClose?: () => void }) {
   const pathname = usePathname()
@@ -45,7 +47,7 @@ function Sidebar({ onClose }: { onClose?: () => void }) {
               className={`flex items-center gap-2.5 px-5 py-2.5 text-sm transition-all border-l-2 ${
                 active
                   ? 'bg-white/10 text-white border-[#5DCAA5]'
-                  : 'text-white/60 hover:text-white hover:bg-white/7 border-transparent'
+                  : 'text-white/60 hover:text-white hover:bg-white/10 border-transparent'
               }`}
             >
               <Icon size={16} />
@@ -63,34 +65,36 @@ function Sidebar({ onClose }: { onClose?: () => void }) {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isPublic = PUBLIC_ROUTES.some(r => pathname === r || pathname.startsWith('/portale'))
+
+  if (isPublic) {
+    return (
+      <html lang="it">
+        <body>{children}</body>
+      </html>
+    )
+  }
 
   return (
     <html lang="it">
       <body>
         <div className="flex h-screen overflow-hidden">
-          {/* Sidebar desktop */}
           <div className="hidden lg:flex w-52 flex-shrink-0">
             <div className="w-full">
               <Sidebar />
             </div>
           </div>
-
-          {/* Sidebar mobile overlay */}
           {sidebarOpen && (
             <div className="lg:hidden fixed inset-0 z-40 flex">
               <div className="w-52 flex-shrink-0 z-50">
                 <Sidebar onClose={() => setSidebarOpen(false)} />
               </div>
-              <div
-                className="flex-1 bg-black/40"
-                onClick={() => setSidebarOpen(false)}
-              />
+              <div className="flex-1 bg-black/40" onClick={() => setSidebarOpen(false)} />
             </div>
           )}
-
-          {/* Main content */}
           <div className="flex-1 overflow-y-auto">
-            {/* Mobile header */}
             <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-[#1b3a38] text-white">
               <button onClick={() => setSidebarOpen(true)}>
                 <Menu size={20} />
