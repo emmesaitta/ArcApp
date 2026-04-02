@@ -14,7 +14,6 @@ export default function HomePage() {
           <div className="flex items-center gap-1 sm:gap-4">
             <Link href="#servizi" className="text-sm text-gray-500 hover:text-gray-800 hidden sm:block">Servizi</Link>
             <Link href="#contatti" className="text-sm text-gray-500 hover:text-gray-800 hidden sm:block">Contatti</Link>
-            <Link href="/menu-pubblico" className="text-sm text-gray-500 hover:text-gray-800 hidden sm:block">Menu</Link>
             <Link href="/portale" className="btn-primary text-sm !py-1.5">Portale Parenti</Link>
           </div>
         </div>
@@ -130,8 +129,8 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-sm text-gray-400">© 2026 ArcaCura · Casa di Riposo</p>
           <div className="flex gap-4">
-            <Link href="/menu-pubblico" className="text-xs text-gray-400 hover:text-gray-600">Menu settimanale</Link>
             <Link href="/portale" className="text-xs text-gray-400 hover:text-gray-600">Portale parenti</Link>
+            <Link href="/gestionale" className="text-xs text-gray-400 hover:text-gray-600">Accesso staff</Link>
           </div>
         </div>
       </footer>
