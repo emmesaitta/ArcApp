@@ -9,7 +9,7 @@ import {
 import { useState } from 'react'
 
 const navItems = [
-    { href: '/ospiti',            label: 'Ospiti',           icon: Users },
+  { href: '/ospiti',            label: 'Ospiti',           icon: Users },
   { href: '/note',              label: 'Note del giorno',  icon: FileText },
   { href: '/pasti',             label: 'Pasti',            icon: Utensils },
   { href: '/menu',              label: 'Menu settimanale', icon: CalendarDays },
