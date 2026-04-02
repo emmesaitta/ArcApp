@@ -22,11 +22,14 @@ function Sidebar({ onClose }: { onClose?: () => void }) {
   const pathname = usePathname()
   return (
     <div className="flex flex-col h-full bg-[#1b3a38] text-white">
-      <div className="p-5 border-b border-white/10">
+     <div className="p-5 border-b border-white/10">
         <div className="flex items-center justify-between">
-          <div>
-            <p className="font-medium text-sm leading-tight">ArcaCura</p>
-            <p className="text-xs text-white/40 mt-0.5">ArcApp</p>
+          <div className="flex items-center gap-3">
+            <div>
+              <p className="font-medium text-sm leading-tight">ArcaCura</p>
+              <p className="text-xs text-white/40 mt-0.5">Gestionale</p>
+            </div>
+            <img src="/logo.jpg" alt="Elisir" className="h-10 w-auto object-contain" />
           </div>
           {onClose && (
             <button onClick={onClose} className="lg:hidden text-white/50 hover:text-white">
