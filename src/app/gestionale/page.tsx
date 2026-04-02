@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 
 export default function GestionalePage() {
@@ -14,12 +13,18 @@ export default function GestionalePage() {
     e.preventDefault()
     setLoading(true)
     setErrore('')
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) {
+
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    })
+
+    if (res.ok) {
+      router.push('/ospiti')
+    } else {
       setErrore('Email o password non corretti.')
       setLoading(false)
-    } else {
-      router.push('/ospiti')
     }
   }
 
