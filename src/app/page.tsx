@@ -15,7 +15,7 @@ export default function HomePage() {
             <Link href="#servizi" className="text-sm text-gray-500 hover:text-gray-800 hidden sm:block">Servizi</Link>
             <Link href="#contatti" className="text-sm text-gray-500 hover:text-gray-800 hidden sm:block">Contatti</Link>
             <Link href="/portale" className="btn-primary text-sm !py-1.5">Portale Parenti</Link>
-            <Link href="/gestionale" className="text-xs text-gray-400 hover:text-gray-600 hidden sm:block border border-gray-200 px-3 py-1.5 rounded-lg">Accesso staff</Link>
+            <Link href="/accesso-staff" className="text-xs text-gray-400 hover:text-gray-600 hidden sm:block border border-gray-200 px-3 py-1.5 rounded-lg">Accesso staff</Link>
           </div>
         </div>
       </nav>
@@ -30,7 +30,7 @@ export default function HomePage() {
             Cura, rispetto e<br className="hidden sm:block" /> serenità ogni giorno
           </h1>
           <p className="text-lg text-gray-500 leading-relaxed mb-8 max-w-xl mx-auto">
-            Elisir è una casa di riposo a conduzione familiare nel cuore di Palermo,
+            Elisir è una casa di riposo nel cuore di Palermo,
             dove ogni ospite è trattato con attenzione e affetto. I parenti possono
             restare sempre vicini grazie al nostro portale digitale.
           </p>
